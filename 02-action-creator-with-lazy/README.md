@@ -1,1 +1,1 @@
-# babel-plugin-lazy-action-creator-examples
+run : npm run start

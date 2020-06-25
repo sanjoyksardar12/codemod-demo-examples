@@ -6,22 +6,25 @@ const babel = require("@babel/core");
 
 let ID = 0;
 
+console.log("babel plugin demo::::");
+
 function createAssets(filename) {
   const content = fs.readFileSync(filename, "utf-8");
 
   //1. parser
   const ast = parser.parse(content, { sourceType: "module" });
 
-  console.log(`\n\n\n**************** AST for ${filename}********************`);
-  console.log(JSON.stringify(ast, null, 2));
-  console.log(`\n**************** End  AST${filename}********************`);
+  // console.log(`\n\n\n**************** AST for ${filename}********************`);
+  // console.log(JSON.stringify(ast, null, 2));
+  // console.log(`\n**************** End  AST ${filename}********************`);
 
   const dependencies = [];
 
   //2. traverse
   traverse(ast, {
     //3. babel-types
-    ImportDeclaration: function ({ node }) {
+    ImportDeclaration: function (path) {
+      const { node } = path;
       dependencies.push(node.source.value);
     }
   });
@@ -32,9 +35,9 @@ function createAssets(filename) {
     presets: ["@babel/preset-env"]
   });
 
-  console.log(`\n\n\n**************** code  for ${filename}********************`);
-  console.log(JSON.stringify(code, null, 2));
-  console.log(`\n**************** End  code ${filename}********************`);
+  // console.log(`\n\n\n**************** code  for ${filename}********************`);
+  // console.log(JSON.stringify(code, null, 2));
+  // console.log(`\n**************** End  code ${filename}********************`);
 
 
   return {
@@ -92,6 +95,7 @@ function bundle(graph) {
 }
 const graph = createGraph("./src/index.js");
 const result = bundle(graph);
+
 
 fs.writeFileSync("./bundle.min.js", result);
 // console.log(result);

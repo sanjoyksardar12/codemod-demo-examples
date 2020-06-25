@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "node bundle.js | js-beautify | highlight",
-    "execute": "node bundle.min.js",
+    "build": "node  --trace-uncaught bundle.js | js-beautify | highlight",
+    "execute": "node --trace-uncaught bundle.min.js",
     "start": "npm run build && npm run execute"
   },
   "keywords": [],
@@ -20,6 +20,7 @@
     "@babel/preset-react": "^7.10.1",
     "babel-loader": "^8.0.2",
     "css-loader": "^1.0.0",
+    "js-beautify": "^1.11.0",
     "nodemon": "^2.0.4",
     "style-loader": "^0.23.0",
     "webpack": "^4.41.2",

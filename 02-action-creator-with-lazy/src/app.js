@@ -77,6 +77,29 @@ const mapdispatchToProps = (dispatch) => ({
 
 export default connect(mapStateToProps, mapdispatchToProps)(App);
 
+
+
+// const mapdispatchToProps = (dispatch) => ({
+//   multiplication2: (...rest) => import(/* webpackPrefetch: true */ "./actions/multiplication.js")
+//     .then(({ default: multiplication }) => dispatch(multiplication(...rest))),
+
+//   multiplication3: (...rest) => import(/* webpackPrefetch: true */ "./actions/multiplication.js")
+//     .then(({ multiplication3 }) => dispatch(multiplication3(...rest))),
+
+//   addition2: (...rest) => import(/* webpackPrefetch: true */ "./actions/addition.js")
+//     .then(({ default: addition }) => dispatch(addition(...rest))),
+
+//   addition3: (...rest) => import(/* webpackPrefetch: true */ "./actions/addition.js")
+//     .then(({ additionThree }) => dispatch(additionThree(...rest))),
+
+//   subtraction2: (...rest) => import( /* webpackPrefetch: true  */ /*  webpackMode: "lazy" */"./actions/subtraction.js")
+//     .then(({ default: subtraction }) => dispatch(subtraction(...rest))),
+
+//   subtraction3: (...rest) => import( /* webpackPrefetch: true */ /*  webpackMode: "lazy" */"./actions/subtraction.js")
+//     .then(({ subtractionThree : subThree }) => dispatch(subThree(...rest))),
+// });
+
+
 // function lazyLoadAction({filename, dispatch, functionName, args}){
 //   return (a, b)=>import(
 //     /* webpackChunkName: "my-chunk-name" */

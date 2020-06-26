@@ -21,7 +21,7 @@ class App extends Component {
 
     setTimeout(() => {
       const { addition2, addition3 } = this.props;
-      addition2(2, 3, 4);
+      addition2(2, 3);
       setTimeout(() => {
         addition3(2, 3, 4);
       }, 1000);
